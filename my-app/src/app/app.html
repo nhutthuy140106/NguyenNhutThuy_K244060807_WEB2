@@ -1,0 +1,12 @@
+<app-homework></app-homework>
+<!-- <app-binding-property-component></app-binding-property-component> -->
+ <!-- <app-binding-class-component></app-binding-class-component> -->
+
+<router-outlet />
+
+<p *ngIf="dataFromChild">
+  Data from child component: {{ dataFromChild | json }}
+</p>
+<app-first [parentData]="data" (childEvent)="dataFromChild=$event"></app-first>
+
+<router-outlet />

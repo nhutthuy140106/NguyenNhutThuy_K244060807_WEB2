@@ -1,0 +1,37 @@
+<p>service-product-image-event-detail works!</p>
+<h2>Chi tiết sản phẩm</h2>
+
+<button type="button" (click)="goBack()">
+  Go Back
+</button>
+
+<table *ngIf="selectedProduct as product; else notFound" border="1">
+  <tr>
+    <td>ID:</td>
+    <td>{{ product.ProductId }}</td>
+  </tr>
+
+  <tr>
+    <td>Name:</td>
+    <td>{{ product.ProductName }}</td>
+  </tr>
+
+  <tr>
+    <td>Price:</td>
+    <td>{{ product.Price }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">
+      <img
+        [src]="product.Image"
+        [alt]="product.ProductName"
+        width="180"
+      />
+    </td>
+  </tr>
+</table>
+
+<ng-template #notFound>
+  <p>Không tìm thấy sản phẩm.</p>
+</ng-template>

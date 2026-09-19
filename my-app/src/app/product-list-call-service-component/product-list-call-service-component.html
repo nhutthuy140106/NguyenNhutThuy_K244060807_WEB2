@@ -1,0 +1,29 @@
+<p>product-list-call-service-component works!</p>
+min price: <input type="number" [(ngModel)]="minPrice" />
+max price: <input type="number" [(ngModel)]="maxPrice" />
+<button (click)="doFilter()">Filter</button>
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (product of products; track product.id) {
+    <tr>
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td><img [src]="product.image" [alt]="product.name" width="180" height="180"></td>
+    </tr>
+    }
+    @empty {
+    <tr>
+      <td colspan="4">No products available.</td>
+    </tr>
+    }
+  </tbody>
+</table>

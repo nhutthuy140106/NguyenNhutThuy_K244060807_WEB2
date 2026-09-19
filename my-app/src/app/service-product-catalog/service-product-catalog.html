@@ -1,0 +1,49 @@
+<p>service-product-catalog works!</p>
+<h2>Danh mục sản phẩm</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Mã danh mục</th>
+      <th>Tên danh mục</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let category of categories">
+    <tr>
+      <td>{{ category.Cateid }}</td>
+      <td>{{ category.CateName }}</td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Mã sản phẩm</th>
+              <th>Tên sản phẩm</th>
+              <th>Giá sản phẩm</th>
+              <th>Picture</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let product of category.Products">
+              <td>{{ product.ProductId }}</td>
+              <td>{{ product.ProductName }}</td>
+              <td>{{ product.Price }}</td>
+
+              <td>
+                <img
+                  [src]="product.Image"
+                  [alt]="product.ProductName"
+                  width="100"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
