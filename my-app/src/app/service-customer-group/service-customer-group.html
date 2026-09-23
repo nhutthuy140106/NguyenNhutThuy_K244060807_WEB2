@@ -1,0 +1,40 @@
+<p>service-customer-group works!</p>
+<h2>Bài 18 - Group Customers</h2>
+
+@if (errorMessage()) {
+  <p class="error">{{ errorMessage() }}</p>
+}
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>#</th>
+    </tr>
+  </thead>
+
+  @for (group of groups(); track group.CustomerTypeId) {
+    <tbody>
+      <tr>
+        <td colspan="5" class="group-title">
+          {{ group.CustomerTypeId }} - {{ group.CustomerTypeName }}
+        </td>
+      </tr>
+
+      @for (customer of group.Customers; track customer.Id) {
+        <tr>
+          <td>{{ customer.Id }}</td>
+          <td>{{ customer.Name }}</td>
+          <td>{{ customer.Email }}</td>
+          <td>{{ customer.Age }}</td>
+          <td>
+            <img [src]="customer.Image" [alt]="customer.Name" />
+          </td>
+        </tr>
+      }
+    </tbody>
+  }
+</table>

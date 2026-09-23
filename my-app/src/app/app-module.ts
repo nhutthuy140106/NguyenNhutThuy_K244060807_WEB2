@@ -18,6 +18,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ServiceProductImageEvent } from './service-product-image-event/service-product-image-event';
 import { ServiceProductImageEventDetail } from './service-product-image-event-detail/service-product-image-event-detail';
 import { ServiceProductCatalog } from './service-product-catalog/service-product-catalog';
+import { ServiceCustomerGroup } from './service-customer-group/service-customer-group';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ServiceProductCatalog } from './service-product-catalog/service-product
     ServiceProductImageEvent,
     ServiceProductImageEventDetail,
     ServiceProductCatalog,
+    ServiceCustomerGroup,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(withInterceptorsFromDi())],

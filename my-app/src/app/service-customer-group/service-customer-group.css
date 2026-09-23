@@ -1,0 +1,30 @@
+table {
+  border: 1px solid #888;
+  border-spacing: 2px;
+}
+
+th,
+td {
+  border: 1px solid #888;
+  padding: 4px;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.group-title {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+}
+
+.error {
+  color: red;
+}
