@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductHttpHandleErrorService } from '../services/product-http-handle-error-service';
 import { Product } from '../classes/IProduct';
 import id from '@angular/common/locales/extra/id';
+import { createSlug } from '../classes/SlugHelper';
 
 @Component({
   selector: 'app-product-list-advanced-component',
@@ -13,6 +14,7 @@ import id from '@angular/common/locales/extra/id';
 export class ProductListAdvancedComponent {
   products = signal<Product[]>([]);
   errMessage = signal("");
+  public generateSlug=createSlug;
 
   constructor(
     private _service: ProductHttpHandleErrorService,
@@ -35,4 +37,12 @@ export class ProductListAdvancedComponent {
   viewDetail(id: number) {
     this.router.navigate(['/product', id]);
   }
+
+    viewDetailSlug(p:Product)
+  {
+    let slug=this.generateSlug(p.name,p.id)
+    this.router.navigate(["/product",slug])
+  }
+
+
 }

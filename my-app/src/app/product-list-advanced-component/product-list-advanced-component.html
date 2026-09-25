@@ -8,6 +8,7 @@
       <th>Price</th>
       <th>Image</th>
       <th>Details</th>
+      <th>Slug</th>
     </tr>
   </thead>
 
@@ -27,6 +28,13 @@
         View detail
         </a>
     </td>
+    <td>
+        <a (click)="viewDetailSlug(p)"
+        style="cursor: pointer;"
+        title="click here to view detail" >
+        {{generateSlug(p.name,p.id)}}
+      </a>
+      </td>
     </tr>
   } @empty {
     <tr>
