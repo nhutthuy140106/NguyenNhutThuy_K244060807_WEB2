@@ -14,6 +14,7 @@ import { ServiceProductImageEvent } from './service-product-image-event/service-
 import { ServiceProductImageEventDetail } from './service-product-image-event-detail/service-product-image-event-detail';
 import { ServiceProductCatalog } from './service-product-catalog/service-product-catalog';
 import { ServiceCustomerGroup } from './service-customer-group/service-customer-group';
+import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path:"service-product-image-event", component:ServiceProductImageEvent},
   {path:"service-product-image-event/:id", component:ServiceProductImageEventDetail},
   {path:"service-product-catalog", component:ServiceProductCatalog},
-  {path:"service-customer-group", component:ServiceCustomerGroup}
+  {path:"service-customer-group", component:ServiceCustomerGroup},
+  {path:"product/:id", component:ProductDetailComponent},
 ];
 
 @NgModule({

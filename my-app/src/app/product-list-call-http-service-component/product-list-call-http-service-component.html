@@ -12,9 +12,17 @@
     @for (product of products(); track product.id) {
     <tr>
       <td>{{ product.id }}</td>
-      <td>{{ product.name }}</td>
+      <td>
+        <a routerLink="/product/{{ product.id }}">
+          {{ product.name }}
+        </a>
+      </td>
       <td>{{ product.price }}</td>
-      <td><img [src]="product.image" [alt]="product.name" width="180" height="180"></td>
+      <td>
+        <a routerLink="/product/{{ product.id }}">
+          <img [src]="product.image" [alt]="product.name" width="180" height="180">
+        </a>
+      </td>
     </tr>
     }
     @empty {

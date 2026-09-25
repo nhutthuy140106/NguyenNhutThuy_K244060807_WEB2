@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/internal/operators/catchError';
 import { retry } from 'rxjs/internal/operators/retry';
 import { Product } from '../classes/IProduct';
 import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,11 @@ export class ProductHttpHandleErrorService {
 
     handleError(error: HttpErrorResponse) {
         return throwError(() => new Error(error.message));
+    }
+    getProductById(id: number): Observable<Product | undefined> {
+    return this.getProductList().pipe(
+      map((products: Product[]) => products.find(p => p.id === id)),
+      catchError(this.handleError)
+    );
     }
 }

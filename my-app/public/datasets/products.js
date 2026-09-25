@@ -32,5 +32,12 @@
       "name": "Iphone 18 Pro", 
       "price": 689, 
       "image": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-18-pro-01_5.jpg" 
+      },
+
+      { 
+      "id": 6, 
+      "name": "SamSung Galaxy S23 Ultra", 
+      "price": 700, 
+      "image": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-18-pro-01_5.jpg" 
       }
 ]

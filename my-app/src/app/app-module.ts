@@ -19,6 +19,9 @@ import { ServiceProductImageEvent } from './service-product-image-event/service-
 import { ServiceProductImageEventDetail } from './service-product-image-event-detail/service-product-image-event-detail';
 import { ServiceProductCatalog } from './service-product-catalog/service-product-catalog';
 import { ServiceCustomerGroup } from './service-customer-group/service-customer-group';
+import { ProductDetailComponent } from './product-detail-component/product-detail-component';
+import { ProductListCallHttpServiceComponent } from './product-list-call-http-service-component/product-list-call-http-service-component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +41,8 @@ import { ServiceCustomerGroup } from './service-customer-group/service-customer-
     ServiceProductImageEventDetail,
     ServiceProductCatalog,
     ServiceCustomerGroup,
+    ProductDetailComponent,
+    ProductListCallHttpServiceComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(withInterceptorsFromDi())],
