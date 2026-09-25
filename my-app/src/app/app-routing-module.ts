@@ -38,6 +38,13 @@ const routes: Routes = [
   {path:"product/:id", component:ProductDetailComponent},
   {path:"products", component: ProductListAdvancedComponent },
   {path:"search-products", component: ProductListSearchComponent },
+  {
+    path:"samplenested", component: ProductListAdvancedComponent,
+    children: [
+      {path:"search", component: ProductListSearchComponent},
+      {path:"detail/:id", component: ProductDetailComponent},
+    ]
+  },
   {path:"", component:Contact},
   {path:"**", component: PageNotFoundComponent},
 ];
