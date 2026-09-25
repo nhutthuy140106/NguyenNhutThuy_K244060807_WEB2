@@ -39,5 +39,8 @@ export class ProductDetailComponent {
       }
     );
   }
+  Quaylai(){
+    this.router.navigate(['/products']);
+  }
 }
 

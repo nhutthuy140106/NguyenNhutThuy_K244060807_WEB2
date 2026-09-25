@@ -1,0 +1,38 @@
+<p>product-list-advanced-component works!</p>
+{{errMessage()}}
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (p of products(); track p.id) {
+    <tr>
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.price }}</td>
+      <td>
+        <a (click)="viewDetail(p.id)" style="cursor: pointer">
+        <img [src]="p.image" [alt]="p.name" width="180" height="180">
+        </a>
+    </td>
+    <td>
+        <a (click)="viewDetail(p.id)" style="cursor: pointer">
+        View detail
+        </a>
+    </td>
+    </tr>
+  } @empty {
+    <tr>
+      <td colspan="5">No products available.</td>
+    </tr>
+  }
+  </tbody>
+</table>
+

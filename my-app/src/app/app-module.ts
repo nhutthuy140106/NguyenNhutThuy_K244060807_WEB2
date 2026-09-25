@@ -21,7 +21,7 @@ import { ServiceProductCatalog } from './service-product-catalog/service-product
 import { ServiceCustomerGroup } from './service-customer-group/service-customer-group';
 import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 import { ProductListCallHttpServiceComponent } from './product-list-call-http-service-component/product-list-call-http-service-component';
-
+import { ProductListAdvancedComponent } from './product-list-advanced-component/product-list-advanced-component';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { ProductListCallHttpServiceComponent } from './product-list-call-http-se
     ServiceCustomerGroup,
     ProductDetailComponent,
     ProductListCallHttpServiceComponent,
+    ProductListAdvancedComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(withInterceptorsFromDi())],
