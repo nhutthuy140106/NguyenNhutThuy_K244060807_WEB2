@@ -23,6 +23,7 @@ import { ProductDetailComponent } from './product-detail-component/product-detai
 import { ProductListCallHttpServiceComponent } from './product-list-call-http-service-component/product-list-call-http-service-component';
 import { ProductListAdvancedComponent } from './product-list-advanced-component/product-list-advanced-component';
 import { ProductListSearchComponent } from './product-list-search-component/product-list-search-component';
+import { PageNotFoundComponent } from './page-not-found-component/page-not-found-component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ProductListSearchComponent } from './product-list-search-component/prod
     ProductListCallHttpServiceComponent,
     ProductListAdvancedComponent,
     ProductListSearchComponent,
+    PageNotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(withInterceptorsFromDi())],

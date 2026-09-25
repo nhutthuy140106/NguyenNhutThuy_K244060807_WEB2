@@ -17,6 +17,8 @@ import { ServiceCustomerGroup } from './service-customer-group/service-customer-
 import { ProductDetailComponent } from './product-detail-component/product-detail-component';
 import { ProductListAdvancedComponent } from './product-list-advanced-component/product-list-advanced-component';
 import { ProductListSearchComponent } from './product-list-search-component/product-list-search-component';
+import { PageNotFoundComponent } from './page-not-found-component/page-not-found-component';
+import { Contact } from './contact/contact';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -36,6 +38,8 @@ const routes: Routes = [
   {path:"product/:id", component:ProductDetailComponent},
   {path:"products", component: ProductListAdvancedComponent },
   {path:"search-products", component: ProductListSearchComponent },
+  {path:"", component:Contact},
+  {path:"**", component: PageNotFoundComponent},
 ];
 
 @NgModule({
