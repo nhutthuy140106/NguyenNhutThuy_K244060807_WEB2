@@ -19,6 +19,7 @@ import { ProductListAdvancedComponent } from './product-list-advanced-component/
 import { ProductListSearchComponent } from './product-list-search-component/product-list-search-component';
 import { PageNotFoundComponent } from './page-not-found-component/page-not-found-component';
 import { Contact } from './contact/contact';
+import { authGuard } from './classes/auth.guard';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -45,6 +46,14 @@ const routes: Routes = [
       {path:"detail/:id", component: ProductDetailComponent},
     ]
   },
+  {
+    path: "lazyinfor",
+    loadComponent: () =>
+      import('./lazy-component/lazy-component')
+      .then(c => c.LazyComponent),
+      canActivate: [authGuard]
+  },
+  {path:"contact", component:Contact},
   {path:"", component:Contact},
   {path:"**", component: PageNotFoundComponent},
 ];
