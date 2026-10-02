@@ -21,6 +21,7 @@ import { PageNotFoundComponent } from './page-not-found-component/page-not-found
 import { Contact } from './contact/contact';
 import { authGuard } from './classes/auth.guard';
 import { CourseRegistrationComponent } from './course-registration-component/course-registration-component';
+import { LoginComponent } from './login-component/login-component';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -56,6 +57,7 @@ const routes: Routes = [
   },
   {path: 'course-register', component: CourseRegistrationComponent},
   {path:"contact", component:Contact},
+  {path:"login", component:LoginComponent},
   {path:"", component:Contact},
   {path:"**", component: PageNotFoundComponent},
 ];
