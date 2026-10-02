@@ -23,15 +23,26 @@
     </div>
     <!-- Mật khẩu -->
     <div class="mb-3">
-      <label class="form-label fw-bold">Mật khẩu:</label>
-      <input type="password" class="form-control" formControlName="password">
+      <label class="form-label fw-bold" for="password">Mật khẩu:</label>
+      <input type="password" id="password" class="form-control" formControlName="password"
+             aria-describedby="password-help password-errors"
+             [class.is-invalid]="regForm.get('password')?.invalid && (regForm.get('password')?.dirty || regForm.get('password')?.touched)">
+      <small id="password-help" class="form-text">Tối thiểu 8 ký tự, có chữ hoa (A-Z), số (0-9) và ký tự đặc biệt (ví dụ: !, @, #).</small>
+      <div id="password-errors" class="text-danger mt-1" aria-live="polite"
+           *ngIf="regForm.get('password')?.invalid && (regForm.get('password')?.dirty || regForm.get('password')?.touched)">
+        <small class="d-block" *ngIf="regForm.get('password')?.hasError('required')">Vui lòng nhập mật khẩu.</small>
+        <small class="d-block" *ngIf="regForm.get('password')?.errors?.['passwordInvalid']?.minLength">Mật khẩu phải có ít nhất 8 ký tự.</small>
+        <small class="d-block" *ngIf="regForm.get('password')?.errors?.['passwordInvalid']?.uppercase">Mật khẩu cần ít nhất 1 chữ hoa (A-Z).</small>
+        <small class="d-block" *ngIf="regForm.get('password')?.errors?.['passwordInvalid']?.digit">Mật khẩu cần ít nhất 1 ký tự số (0-9).</small>
+        <small class="d-block" *ngIf="regForm.get('password')?.errors?.['passwordInvalid']?.special">Mật khẩu cần ít nhất 1 ký tự đặc biệt (ví dụ: !, @, #).</small>
+      </div>
     </div>
     <!-- Nhập lại mật khẩu (confirmPass) -->
     <div class="mb-3">
       <label class="form-label fw-bold">Nhập lại mật khẩu:</label>
       <input type="password" class="form-control" formControlName="confirmPass">
       <!-- Hiển thị lỗi mismatch từ regForm -->
-      <div class="text-danger" *ngIf="regForm.errors?.['mismatch'] && regForm.get('confirmPass')?.touched">
+<div class="text-danger" *ngIf="regForm.errors?.['mismatch'] && regForm.get('confirmPass')?.touched">
         <small>Mật khẩu xác nhận không khớp.</small>
       </div>
     </div>
@@ -44,5 +55,3 @@
     </div>
   </form>
 </div>
-
-

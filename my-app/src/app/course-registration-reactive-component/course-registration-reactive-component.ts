@@ -49,5 +49,6 @@ export class CourseRegistrationReactiveComponent {
         special: !/[\p{P}\p{S}]/u.test(password)
       }
     };
+    
   }
 }
