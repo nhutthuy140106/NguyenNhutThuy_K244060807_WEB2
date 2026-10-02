@@ -1,52 +1,62 @@
 <div class="container mt-4" style="max-width: 500px; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
   <h2 class="text-center mb-4">Đăng ký khóa học</h2>
-  <!-- 1. Gán biến #courseForm để Angular quản lý cả Form -->
-  <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+  <form #courseForm="ngForm" (ngSubmit)="onSubmit()">
     <!-- Tên -->
     <div class="mb-3">
       <label class="form-label">Tên:</label>
-      <!-- 2. Thêm [(ngModel)] và thuộc tính name -->
-      <input type="text" class="form-control" name="fullName" ngModel required placeholder="Nhập tên">
+      <input type="text" class="form-control" name="fullName"
+             [(ngModel)]="courseModel.fullName" required placeholder="Nhập tên">
     </div>
     <!-- Email -->
     <div class="mb-3">
       <label class="form-label">Email:</label>
-      <input type="email" class="form-control" name="email" ngModel required email placeholder="Nhập địa chỉ email">
-    </div>   
+      <input type="email" class="form-control" name="email"
+             [(ngModel)]="courseModel.email" required email placeholder="Nhập địa chỉ email">
+    </div>
     <!-- Điện thoại -->
     <div class="mb-3">
       <label class="form-label">Điện thoại:</label>
-      <input type="tel" class="form-control" name="phone" ngModel required>
+      <input type="tel" class="form-control" name="phone"
+             [(ngModel)]="courseModel.phone" required>
     </div>
     <!-- Chọn khóa học -->
     <div class="mb-3">
       <label class="form-label">Chọn khóa học:</label>
-      <select class="form-select" name="course" ngModel required>
+      <select class="form-select" name="course" [(ngModel)]="courseModel.course" required>
         <option value="">------------</option>
         <option value="angular">Angular căn bản</option>
         <option value="nodejs">Node.js nâng cao</option>
         <option value="datascience">Data Science</option>
       </select>
-    </div>   
+    </div>
     <!-- Chọn ca học -->
     <div class="mb-3">
       <label class="form-label me-3">Chọn ca học:</label>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="shift" id="sang" value="sang" ngModel>
+        <input class="form-check-input" type="radio" name="shift" id="sang" value="sang"
+               [(ngModel)]="courseModel.shift">
         <label class="form-check-label" for="sang">Sáng</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="shift" id="toi" value="toi" ngModel>
+        <input class="form-check-input" type="radio" name="shift" id="toi" value="toi"
+               [(ngModel)]="courseModel.shift">
         <label class="form-check-label" for="toi">Tối</label>
       </div>
-    </div>   
+    </div>
     <!-- Đồng ý điều khoản -->
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" name="agree" id="checkTerms" ngModel required>
+      <input type="checkbox" class="form-check-input" name="agree" id="checkTerms"
+             [(ngModel)]="courseModel.agree" required>
       <label class="form-check-label" for="checkTerms">Đồng ý với điều khoản</label>
     </div>
-    <!-- Nút Submit - Chỉ sáng lên khi Form hợp lệ -->
+    <!-- Nút Submit -->
     <button type="submit" class="btn btn-primary w-25" [disabled]="courseForm.invalid">Submit</button>
+    <!-- Khu vực hiển thị Debug dữ liệu cho sinh viên xem (Tùy chọn) -->
+    <hr>
+    <div class="mt-3 p-2 bg-light border border-info rounded">
+      <small class="text-primary"><b>Trạng thái Object hiện tại:</b></small>
+      <pre class="mb-0" style="font-size: 11px;">{{ courseModel | json }}</pre>
+    </div>
   </form>
 </div>
 
