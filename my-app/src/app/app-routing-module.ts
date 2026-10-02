@@ -20,6 +20,7 @@ import { ProductListSearchComponent } from './product-list-search-component/prod
 import { PageNotFoundComponent } from './page-not-found-component/page-not-found-component';
 import { Contact } from './contact/contact';
 import { authGuard } from './classes/auth.guard';
+import { CourseRegistrationComponent } from './course-registration-component/course-registration-component';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -53,6 +54,7 @@ const routes: Routes = [
       .then(c => c.LazyComponent),
       canActivate: [authGuard]
   },
+  {path: 'course-register', component: CourseRegistrationComponent},
   {path:"contact", component:Contact},
   {path:"", component:Contact},
   {path:"**", component: PageNotFoundComponent},

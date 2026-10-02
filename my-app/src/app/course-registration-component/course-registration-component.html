@@ -1,0 +1,50 @@
+<div class="container mt-4" style="max-width: 500px; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+  <h2 class="text-center mb-4">Đăng ký khóa học</h2>
+  <form>
+    <!-- Tên -->
+    <div class="mb-3">
+      <label class="form-label">Tên:</label>
+      <input type="text" class="form-control" placeholder="Nhập tên">
+    </div>
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="form-label">Email:</label>
+      <input type="email" class="form-control" placeholder="Nhập địa chỉ email">
+    </div>
+    <!-- Điện thoại -->
+    <div class="mb-3">
+      <label class="form-label">Điện thoại:</label>
+      <input type="tel" class="form-control">
+    </div>
+    <!-- Chọn khóa học -->
+    <div class="mb-3">
+      <label class="form-label">Chọn khóa học:</label>
+      <select class="form-select">
+        <option selected>------------</option>
+        <option value="angular">Angular căn bản</option>
+        <option value="nodejs">Node.js nâng cao</option>
+        <option value="datascience">Data Science</option>
+      </select>
+    </div>
+    <!-- Chọn ca học -->
+    <div class="mb-3">
+      <label class="form-label me-3">Chọn ca học:</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="caHoc" id="sang" value="sang">
+        <label class="form-check-label" for="sang">Sáng</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="caHoc" id="toi" value="toi">
+        <label class="form-check-label" for="toi">Tối</label>
+      </div>
+    </div>
+    <!-- Đồng ý điều khoản -->
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="checkTerms" checked>
+      <label class="form-check-label" for="checkTerms">Đồng ý với điều khoản</label>
+    </div>
+    <!-- Nút Submit -->
+    <button type="submit" class="btn btn-primary w-25">Submit</button>
+  </form>
+</div>
+
