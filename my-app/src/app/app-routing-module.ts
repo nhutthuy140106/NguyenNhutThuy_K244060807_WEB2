@@ -22,6 +22,7 @@ import { Contact } from './contact/contact';
 import { authGuard } from './classes/auth.guard';
 import { CourseRegistrationComponent } from './course-registration-component/course-registration-component';
 import { LoginComponent } from './login-component/login-component';
+import { CourseRegistrationReactiveComponent } from './course-registration-reactive-component/course-registration-reactive-component';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -55,7 +56,8 @@ const routes: Routes = [
       .then(c => c.LazyComponent),
       canActivate: [authGuard]
   },
-  {path: 'course-register', component: CourseRegistrationComponent},
+  {path:"course-register", component: CourseRegistrationComponent},
+  {path:"course-reactive-register", component: CourseRegistrationReactiveComponent},
   {path:"contact", component:Contact},
   {path:"login", component:LoginComponent},
   {path:"", component:Contact},
