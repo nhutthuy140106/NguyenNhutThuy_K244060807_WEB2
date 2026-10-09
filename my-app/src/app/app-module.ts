@@ -30,6 +30,7 @@ import { CourseRegistrationReactiveComponent } from './course-registration-react
 import { FakeProductComponent } from './fake-product-component/fake-product-component';
 import { FakeProductComponent2 } from './fake-product-component2/fake-product-component2';
 import { BooksComponent } from './books-component/books-component';
+import { BookDetailComponent } from './book-detail-component/book-detail-component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { BooksComponent } from './books-component/books-component';
     FakeProductComponent,
     FakeProductComponent2,
     BooksComponent,
+    BookDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(withInterceptorsFromDi())],

@@ -26,6 +26,7 @@ import { CourseRegistrationReactiveComponent } from './course-registration-react
 import { FakeProductComponent } from './fake-product-component/fake-product-component';
 import { FakeProductComponent2 } from './fake-product-component2/fake-product-component2';
 import { BooksComponent } from './books-component/books-component';
+import { BookDetailComponent } from './book-detail-component/book-detail-component';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -67,6 +68,7 @@ const routes: Routes = [
   {path:"fake-product", component:FakeProductComponent},
   {path:"fake-product2", component:FakeProductComponent2},
   {path:"book-list", component:BooksComponent},
+  {path:"book-detail", component:BookDetailComponent},
   {path:"**", component: PageNotFoundComponent},
 ];
 

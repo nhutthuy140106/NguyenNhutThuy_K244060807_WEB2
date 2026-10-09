@@ -35,6 +35,11 @@ app.get("/books",(req,res)=>{
     res.send(database)
 })
 
+app.get('/books/:id', cors(), (req, res) => {
+  const id = req.params['id'];
+  const p = database.find(x => x.BookId === id);
+  res.send(p);
+});
 
 
 
