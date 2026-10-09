@@ -31,6 +31,9 @@ import { FakeProductComponent } from './fake-product-component/fake-product-comp
 import { FakeProductComponent2 } from './fake-product-component2/fake-product-component2';
 import { BooksComponent } from './books-component/books-component';
 import { BookDetailComponent } from './book-detail-component/book-detail-component';
+import { BookNewComponent } from './book-new-component/book-new-component';
+import { BookUpdateComponent } from './book-update-component/book-update-component';
+import { BookDeleteComponent } from './book-delete-component/book-delete-component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,9 @@ import { BookDetailComponent } from './book-detail-component/book-detail-compone
     FakeProductComponent2,
     BooksComponent,
     BookDetailComponent,
+    BookNewComponent,
+    BookUpdateComponent,
+    BookDeleteComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(withInterceptorsFromDi())],

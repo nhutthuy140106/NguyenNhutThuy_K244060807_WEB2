@@ -27,6 +27,9 @@ import { FakeProductComponent } from './fake-product-component/fake-product-comp
 import { FakeProductComponent2 } from './fake-product-component2/fake-product-component2';
 import { BooksComponent } from './books-component/books-component';
 import { BookDetailComponent } from './book-detail-component/book-detail-component';
+import { BookNewComponent } from './book-new-component/book-new-component';
+import { BookUpdateComponent } from './book-update-component/book-update-component';
+import { BookDeleteComponent } from './book-delete-component/book-delete-component';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -69,6 +72,9 @@ const routes: Routes = [
   {path:"fake-product2", component:FakeProductComponent2},
   {path:"book-list", component:BooksComponent},
   {path:"book-detail", component:BookDetailComponent},
+  {path:"book-new", component:BookNewComponent},
+  {path:"book-update", component:BookUpdateComponent},
+  {path:"book-delete", component:BookDeleteComponent},
   {path:"**", component: PageNotFoundComponent},
 ];
 
