@@ -5,12 +5,15 @@ const morgan=require("morgan")
 app.use(morgan("combined"))
 
 const path=require("path")
+const fs=require("fs")
 app.use(express.static(path.join(__dirname,"public")))
 
 const cors=require("cors")
 app.use(cors())
 const bodyParser=require("body-parser")
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 //create default API
 app.get("/",(req,res)=>{
@@ -40,6 +43,14 @@ app.get('/books/:id', cors(), (req, res) => {
   const p = database.find(x => x.BookId === id);
   res.send(p);
 });
+
+app.post("/books",cors(),(req,res)=>{   
+    //put json book into database
+    database.push(req.body);
+    //send message to client(send all database to client)
+    res.send(database)
+})
+
 
 
 
