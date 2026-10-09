@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/binding-style-component/binding-style-component.css"],
+  "sourcesContent": [".progress-bar-container {\r\n  width: 100%;\r\n  height: 20px;\r\n  background-color: #e0e0e0; \r\n  border-radius: 10px;     \r\n  overflow: hidden;    \r\n  margin: 10px 0;\r\n}\r\n\r\n.progress-bar {\r\n  height: 100%;\r\n  transition: width 0.3s ease, background-color 0.3s ease;\r\n}"],
+  "mappings": ";AAAA,CAAC;AACC,SAAO;AACP,UAAQ;AACR,oBAAkB;AAClB,iBAAe;AACf,YAAU;AACV,UAAQ,KAAK;AACf;AAEA,CAAC;AACC,UAAQ;AACR,cAAY,MAAM,KAAK,IAAI,EAAE,iBAAiB,KAAK;AACrD;",
+  "names": []
+}

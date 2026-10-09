@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/contact/contact.css"],
+  "sourcesContent": ["table,tr,th,td {\r\n  border: solid 1px black;\r\n}\r\n\r\nthead {\r\n  background-color: #f2f2f2;\r\n  color: #333;\r\n}\r\n\r\ntbody tr:nth-child(even) {\r\n  background-color: yellow;\r\n}\r\n\r\ntbody tr:nth-child(odd) {\r\n  background-color: cyan;\r\n}\r\n\r\ntbody tr:hover {\r\n  background-color: orange;\r\n  font-style: italic;\r\n}"],
+  "mappings": ";AAAA;AAAM;AAAG;AAAG;AACV,UAAQ,MAAM,IAAI;AACpB;AAEA;AACE,oBAAkB;AAClB,SAAO;AACT;AAEA,MAAM,EAAE;AACN,oBAAkB;AACpB;AAEA,MAAM,EAAE;AACN,oBAAkB;AACpB;AAEA,MAAM,EAAE;AACN,oBAAkB;AAClB,cAAY;AACd;",
+  "names": []
+}

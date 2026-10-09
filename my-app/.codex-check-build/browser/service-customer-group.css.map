@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/service-customer-group/service-customer-group.css"],
+  "sourcesContent": ["table {\r\n  border: 1px solid #888;\r\n  border-spacing: 2px;\r\n}\r\n\r\nth,\r\ntd {\r\n  border: 1px solid #888;\r\n  padding: 4px;\r\n}\r\n\r\ntd {\r\n  vertical-align: middle;\r\n}\r\n\r\n.group-title {\r\n  background-color: #eee;\r\n  font-weight: bold;\r\n}\r\n\r\nimg {\r\n  display: block;\r\n  width: 130px;\r\n  height: 130px;\r\n  object-fit: cover;\r\n}\r\n\r\n.error {\r\n  color: red;\r\n}"],
+  "mappings": ";AAAA;AACE,UAAQ,IAAI,MAAM;AAClB,kBAAgB;AAClB;AAEA;AACA;AACE,UAAQ,IAAI,MAAM;AAClB,WAAS;AACX;AAEA;AACE,kBAAgB;AAClB;AAEA,CAAC;AACC,oBAAkB;AAClB,eAAa;AACf;AAEA;AACE,WAAS;AACT,SAAO;AACP,UAAQ;AACR,cAAY;AACd;AAEA,CAAC;AACC,SAAO;AACT;",
+  "names": []
+}

@@ -23,6 +23,7 @@ import { authGuard } from './classes/auth.guard';
 import { CourseRegistrationComponent } from './course-registration-component/course-registration-component';
 import { LoginComponent } from './login-component/login-component';
 import { CourseRegistrationReactiveComponent } from './course-registration-reactive-component/course-registration-reactive-component';
+import { FakeProductComponent } from './fake-product-component/fake-product-component';
 
 const routes: Routes = [
   {path:"binding-property", component:BindingPropertyComponent},
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path:"contact", component:Contact},
   {path:"login", component:LoginComponent},
   {path:"", component:Contact},
+  {path:"fake-product", component:FakeProductComponent},
   {path:"**", component: PageNotFoundComponent},
 ];
 
