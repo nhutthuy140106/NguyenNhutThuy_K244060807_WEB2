@@ -1,0 +1,45 @@
+.product-card {
+  border: none;
+}
+
+.image-box {
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.image-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.discount {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ffc107;
+  color: white;
+  padding: 2px 9px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.wishlist {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  color: #ccc;
+  font-size: 22px;
+}
+
+.card-body {
+  gap: 4px;
+}
+
+.btn-warning {
+  background: #ffbd00;
+}
