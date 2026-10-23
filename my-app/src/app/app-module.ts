@@ -37,6 +37,7 @@ import { BookDeleteComponent } from './book-delete-component/book-delete-compone
 import { FashionComponent } from './fashion-component/fashion-component';
 import { FashionDetailComponent } from './fashion-detail-component/fashion-detail-component';
 import { FashionSearchComponent } from './fashion-search-component/fashion-search-component';
+import { FashionNewComponent } from './fashion-new-component/fashion-new-component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { FashionSearchComponent } from './fashion-search-component/fashion-searc
     FashionComponent,
     FashionDetailComponent,
     FashionSearchComponent,
+    FashionNewComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient(withInterceptorsFromDi())],

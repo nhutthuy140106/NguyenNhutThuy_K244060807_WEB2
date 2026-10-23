@@ -38,6 +38,16 @@ export class FashionAPIService {
             catchError(this.handleError))
     }
 
+    postFashion(aFashion:any):Observable<any>
+    {
+      let jsonString=JSON.stringify(aFashion)
+      return this._http.post<any>("/fashions",jsonString,this.requestOptions).pipe(
+          map(res=>JSON.parse(res) as Fashion),
+          retry(3),
+          catchError(this.handleError))
+    }
 }
+
+
 
 
