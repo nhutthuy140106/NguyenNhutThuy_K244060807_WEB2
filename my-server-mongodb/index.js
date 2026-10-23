@@ -56,6 +56,15 @@ app.get("/fashions/idf/:idf",cors(),async (req,res)=>{
     res.send(result[0])
     }
 )
+app.post("/fashions",cors(),async(req,res)=>{   
+    //put json Fashion into database
+    await fashionCollection.insertOne(req.body)
+    //send message to client(send all database to client)
+    res.send(req.body)
+})
+
+
+
 
 
 
