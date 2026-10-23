@@ -1,0 +1,22 @@
+.container { max-width: 1250px; margin: 20px auto; padding: 0 16px; font-family: Segoe UI, Arial, sans-serif; }
+h2 { color: #333; }
+.error { color: red; }
+
+table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.12); border-radius: 10px; overflow: hidden; }
+th { background: #333; color: #fff; padding: 12px; text-align: left; }
+td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+tbody tr:hover { background: #fff0f5; }
+
+td.idf { font-weight: bold; color: #d6336c; text-align: center; width: 50px; }
+td.subject { font-weight: 600; width: 220px; }
+.detail {
+  font-size: 14px; color: #555; max-width: 480px; line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 10; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+td img { width: 100px; height: 130px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: transform .2s; }
+td img:hover { transform: scale(1.08); }
+
+.slug { color: #1c7ed6; cursor: pointer; font-size: 13px; word-break: break-all; text-decoration: underline; }
+.slug:hover { color: #d6336c; }
+.empty { text-align: center; color: #888; }

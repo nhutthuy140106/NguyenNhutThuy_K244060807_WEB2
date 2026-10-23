@@ -1,0 +1,24 @@
+<div class="container">
+  <button class="btn-back" (click)="Quaylai()">← Quay lại danh sách</button>
+
+  <div class="search-box">
+    Fashion Id: <input type="text" #fashionId placeholder="Nhập _id...">
+    <button (click)="searchFashion(fashionId.value)">Search</button>
+  </div>
+
+  <p class="error">{{errMessage()}}</p>
+
+  @if (fashion()!=null){
+    <div class="card">
+      <img class="photo" src="{{fashion()?.getBase64String()}}">
+      <div class="info">
+        <span class="badge">IdF: {{fashion()?.IdF}}</span>
+        <h1>{{fashion()?.fashion_subject}}</h1>
+        <p class="meta">Id: {{fashion()?._id}}</p>
+        <p class="detail">{{fashion()?.fashion_detail}}</p>
+      </div>
+    </div>
+  } @else {
+    <p class="notfound">Not found Fashion</p>
+  }
+</div>

@@ -1,0 +1,24 @@
+.container { max-width: 1000px; margin: 20px auto; padding: 0 16px; font-family: Segoe UI, Arial, sans-serif; }
+.error { color: red; }
+
+.btn-back, .search-box button {
+  padding: 8px 18px; border: none; border-radius: 8px; cursor: pointer;
+  background: #d6336c; color: #fff; font-size: 14px;
+}
+.btn-back:hover, .search-box button:hover { background: #b02a5b; }
+
+.search-box { margin: 14px 0; display: flex; gap: 8px; align-items: center; }
+.search-box input { padding: 8px 12px; border: 1px solid #ccc; border-radius: 8px; width: 260px; }
+
+.card {
+  display: flex; gap: 28px; background: #fff; padding: 24px;
+  border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,.15);
+}
+.photo { width: 320px; height: 420px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+.info h1 { margin: 10px 0; color: #333; font-size: 26px; }
+.badge { background: #ffe0ec; color: #d6336c; padding: 4px 12px; border-radius: 12px; font-size: 13px; font-weight: bold; }
+.meta { color: #999; font-size: 12px; }
+.detail { line-height: 1.7; color: #444; font-size: 16px; }
+.notfound { text-align: center; color: #888; margin-top: 40px; }
+
+@media (max-width: 700px) { .card { flex-direction: column; } .photo { width: 100%; } }

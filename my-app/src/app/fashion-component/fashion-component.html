@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Fashion List</h2>
+  <p class="error">{{errMessage()}}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>IdF</th>
+        <th>Image</th>
+        <th>Fashion Subject</th>
+        <th>Fashion Detail</th>
+        <th>Slug</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (fashion of fashions(); track fashion._id) {
+        <tr>
+          <td class="idf">{{fashion.IdF}}</td>
+          <td>
+            <img src="{{fashion.fashion_image}}" (click)="viewDetailSlug(fashion)">
+          </td>
+          <td class="subject">{{fashion.fashion_subject}}</td>
+          <td>
+            <div class="detail">{{fashion.fashion_detail}}</div>
+            </td>
+
+          <td>
+            <a class="slug" (click)="viewDetailSlug(fashion)" title="Bấm để xem chi tiết">
+              {{generateSlug(fashion.fashion_subject, fashion.IdF)}}
+            </a>
+          </td>
+        </tr>
+      } @empty {
+        <tr><td colspan="5" class="empty">Không có fashion nào.</td></tr>
+      }
+    </tbody>
+  </table>
+</div>

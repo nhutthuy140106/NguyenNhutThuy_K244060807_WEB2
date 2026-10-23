@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>Search Fashion</h2>
+  <p class="error">{{errMessage}}</p>
+
+  <div class="search-box">
+    <input type="text" [(ngModel)]="keyword" placeholder="Nhập từ khóa..." (keyup.enter)="search()">
+
+    <select [(ngModel)]="field">
+      <option value="fashion_subject">Fashion Subject</option>
+      <option value="fashion_detail">Fashion Detail</option>
+    </select>
+
+    <label>Số kết quả:
+      <input type="number" [(ngModel)]="limit" min="1" class="num">
+    </label>
+
+    <button (click)="search()">Search</button>
+  </div>
+
+  <div class="legend">
+    <span class="tag pink">0.75 – 1</span>
+    <span class="tag yellow">0.5 – 0.75</span>
+    <span class="tag gray">&lt; 0.5</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th><th>Style</th><th>Subject</th><th>Detail</th><th>Image</th><th>Jaccard</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (r of results; track r.fashion._id) {
+        <tr [class]="rowClass(r.score)">
+          <td class="id">{{r.fashion._id}}</td>
+          <td>{{r.fashion.style}}</td>
+          <td>{{r.fashion.fashion_subject}}</td>
+          <td class="detail">{{r.fashion.fashion_detail}}</td>
+          <td><img src="{{r.fashion.getBase64String()}}"></td>
+          <td class="score">{{r.score.toFixed(2)}}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
