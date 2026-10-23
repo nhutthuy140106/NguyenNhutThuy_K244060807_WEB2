@@ -51,8 +51,28 @@ export class FashionAPIService {
           retry(3),
           catchError(this.handleError))
     }
-}
+        putFashion(aFashion:any):Observable<any>
+    {
+      let jsonString=JSON.stringify(aFashion)
+      const putOptions:Object={
+        headers:new HttpHeaders().set("Content-Type","application/json;charset=utf-8"),
+        responseType:"text"
+      }
+      return this._http.put<any>("/fashions",jsonString,putOptions).pipe(
+          map(res=>JSON.parse(res) as Fashion),
+          retry(3),
+          catchError(this.handleError))
+    }
+    deleteFashion(fashionId:string):Observable<any>
+    {
+      return this._http.delete<any>("/fashions/"+fashionId,this.requestOptions).pipe(
+          map(res=>JSON.parse(res) as Fashion),
+          retry(3),
+          catchError(this.handleError))
+    }
 
+
+}
 
 
 
