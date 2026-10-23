@@ -27,7 +27,7 @@ export class FashionNewComponent {
   postFashion()
   {
     this._service.postFashion(this.fashion).subscribe({
-      next:(data)=>{this.fashion=data},
+      next:(data)=>{this.fashion=Object.assign(new Fashion(),data)},
       error:(err)=>{this.errMessage=err}
     })
   }

@@ -40,8 +40,13 @@ export class FashionAPIService {
 
     postFashion(aFashion:any):Observable<any>
     {
-      let jsonString=JSON.stringify(aFashion)
-      return this._http.post<any>("/fashions",jsonString,this.requestOptions).pipe(
+      const { _id, IdF, ...body } = aFashion   // _id do MongoDB tự tạo
+      let jsonString=JSON.stringify(body)
+      const postOptions:Object={
+        headers:new HttpHeaders().set("Content-Type","application/json;charset=utf-8"),
+        responseType:"text"
+      }
+      return this._http.post<any>("/fashions",jsonString,postOptions).pipe(
           map(res=>JSON.parse(res) as Fashion),
           retry(3),
           catchError(this.handleError))
