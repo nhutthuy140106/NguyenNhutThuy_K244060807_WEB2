@@ -50,8 +50,8 @@ interface Group { style: string; items: Fashion[]; }
     .group { margin-top: 44px; }
     .group h2 { text-align: center; font-size: 14px; letter-spacing: .3em; font-weight: 800; margin: 0 0 24px; position: relative; text-transform: uppercase; }
     .group h2::after { content: ''; display: block; width: 36px; height: 2px; background: var(--accent); margin: 10px auto 0; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 28px 22px; }
-    .card { text-decoration: none; display: block; }
+    .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 22px; }
+    .card { text-decoration: none; display: block; flex: 0 1 270px; max-width: 100%; }
     .photo { aspect-ratio: 3 / 4; overflow: hidden; background: #f1f1f1; display: grid; place-items: center; color: var(--muted); font-size: 12px; }
     .photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
     .card:hover img { transform: scale(1.05); }

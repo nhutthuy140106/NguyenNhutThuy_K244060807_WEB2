@@ -7,10 +7,20 @@ app.use(morgan("combined"))
 
 const path=require("path")
 const fs = require('fs');
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = "chuoi-bi-mat-cua-rieng-ban-123"; // sau này nên để trong .env
 app.use(express.static(path.join(__dirname,"public")))
 
 const cors=require("cors")
-app.use(cors())
+//app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:4200', 
+    credentials: true
+}));
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 const bodyParser=require("body-parser")
 app.use(bodyParser.json({ limit: '50mb' })); 
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
@@ -22,8 +32,8 @@ app.listen(port,()=>{
 app.get("/",(req,res)=>{
     res.send("This Web server is processed for MongoDB")
 })
-
 const { MongoClient, ObjectId } = require('mongodb');
+const { log } = require('console');
 client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
 database = client.db("FashionData");      
@@ -41,22 +51,8 @@ app.get("/fashions/:id",cors(),async (req,res)=>{
     res.send(result[0])
     }
 )
-app.get("/fashions-add-idf",cors(),async (req,res)=>{
-    const fashions = await fashionCollection.find({}).toArray();
-    let idf = 1;
-    for (const f of fashions){
-        await fashionCollection.updateOne({_id:f._id},{$set:{IdF:idf}});
-        idf++;
-    }
-    res.send("Đã thêm IdF cho " + fashions.length + " fashion")
-    }
-)
-app.get("/fashions/idf/:idf",cors(),async (req,res)=>{
-    const result = await fashionCollection.find({IdF:parseInt(req.params["idf"])}).toArray();
-    res.send(result[0])
-    }
-)
-app.post("/fashions",cors(),async(req,res)=>{   
+
+app.post("/fashions",cors(),verifyToken,async(req,res)=>{
     //put json Fashion into database
     await fashionCollection.insertOne(req.body)
     //send message to client(send all database to client)
@@ -75,7 +71,7 @@ app.put("/fashions",cors(),async(req,res)=>{
             } 
         }
         )
-    //send Fahsion after updating
+    //send Fashion after updating
     var o_id = new ObjectId(req.body._id);
     const result = await fashionCollection.find({_id:o_id}).toArray();    
     res.send(result[0])
@@ -91,20 +87,51 @@ app.delete("/fashions/:id",cors(),async(req,res)=>{
     //send Fashion after remove
     res.send(result[0])
 })
+app.post('/user-login', async (req, res) => {
+    const UserCollection = database.collection("User");        
+    const user = await UserCollection.findOne({ 
+        username: req.body.username, 
+        password: req.body.password 
+    });
+    if (user) {
+        if (req.body.rememberMe) {
+            const cookieOptions = {
+                maxAge: 30 * 24 * 60 * 60 * 1000, // 30 ngày
+                httpOnly: false,
+                secure: false, // Set true nếu chạy https
+                sameSite: 'Lax'
+            };
+            res.cookie('remember_user', req.body.username, cookieOptions);
+            // Lưu mật khẩu đã mã hóa SHA-256, không lưu mật khẩu gốc
+            const hashedPassword = crypto.createHash('sha256').update(req.body.password).digest('hex');
+            res.cookie('remember_password', hashedPassword, cookieOptions);
+        }
+        const token = jwt.sign(
+            { username: user.username, role: user.role },
+            JWT_SECRET,
+            { expiresIn: '1h' }
+        );
+        res.status(200).send({
+            message: "Login successful!",
+            user: { username: user.username, role: user.role },
+            token: token
+        });
+    } else {
+        res.status(401).send({ message: "Wrong user or email!" });
+    }
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function verifyToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).send({ message: "Missing token" });
+    }
+    const token = authHeader.split(' ')[1];
+    try {
+        req.user = jwt.verify(token, JWT_SECRET);
+        next();
+    } catch (err) {
+        return res.status(401).send({ message: "Invalid or expired token" });
+    }
+}
 
